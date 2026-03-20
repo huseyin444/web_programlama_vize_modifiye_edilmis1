@@ -4,17 +4,18 @@
     <title>{{ soru.soru_metni }}</title>
 </head>
 <body>
-    <h1>{{ soru.soru_metni }}</h1>
-
-    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
-
     <form action="{% url 'quiz:cevapla' soru.id %}" method="post">
-    {% csrf_token %}
-    {% for secenek in soru.secenek_set.all %}
-        <input type="radio" name="secenek" id="secenek{{ forloop.counter }}" value="{{ secenek.id }}">
-        <label for="secenek{{ forloop.counter }}">{{ secenek.secenek_metni }}</label><br>
-    {% endfor %}
-    <input type="submit" value="Cevapla">
+        {% csrf_token %}
+        <fieldset>
+            <legend><h1>{{ soru.soru_metni }}</h1></legend>
+            {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+            
+            {% for secenek in soru.secenek_set.all %}
+                <input type="radio" name="secenek" id="secenek{{ forloop.counter }}" value="{{ secenek.id }}">
+                <label for="secenek{{ forloop.counter }}">{{ secenek.secenek_metni }}</label><br>
+            {% endfor %}
+        </fieldset>
+        <input type="submit" value="Cevapla">
     </form>
 </body>
 </html>

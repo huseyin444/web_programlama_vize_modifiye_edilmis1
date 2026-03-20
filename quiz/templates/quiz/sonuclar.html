@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sonuç</title>
+</head>
+<body>
+    <h1>{{ soru.soru_metni }}</h1>
+    
+    <h2>{{ sonuc }}</h2>
+    
+    <p>Seçtiğiniz şık: {{ secilen.secenek_metni }}</p>
+
+    <a href="{% url 'quiz:index' %}">Tekrar oyna veya başka soru seç</a>
+</body>
+</html>
