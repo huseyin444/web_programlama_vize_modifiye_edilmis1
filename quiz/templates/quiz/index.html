@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bilgi Yarışması</title>
+</head>
+<body>
+    <h1>Bilgi Yarışması Soruları</h1>
+    
+    {% if son_sorular %}
+        <ul>
+        {% for soru in son_sorular %}
+            <li><a href="{% url 'quiz:detay' soru.id %}">{{ soru.soru_metni }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>Henüz hiç soru eklenmemiş.</p>
+    {% endif %}
+
+</body>
+</html>
