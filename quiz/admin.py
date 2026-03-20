@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import Soru, Secenek
 
-# Register your models here.
+admin.site.register(Soru)
+admin.site.register(Secenek)
